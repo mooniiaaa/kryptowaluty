@@ -1,17 +1,21 @@
-var app = new Vue({
-    el: '#app',
-    data: {
-      CoinList: ['la', 'lal', 'lala'],
-      PriceHistorical: ['aa', 'aaa', 'aaaa']
-    }
-  })
+// var app = new Vue({
+//     el: '#app',
+//     data: {
+//       CoinList: ['la', 'lal', 'lala'],
+//       PriceHistorical: ['aa', 'aaa', 'aaaa']
+//     }
+//   })
 
+
+import Vue from 'vue'
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 
   var app = new Vue({
-    el: '#weather',
+    el: '#app',
 
     data: {
-        getTemp: []
+        coin_list: []
     },
 
     created: function () {
@@ -20,13 +24,11 @@ var app = new Vue({
 
     methods: {
         fetchData: function () {
-            this.$http.get('')
-                      .then(response => {
-                         this.getTemp = response.data
-                         // or like this this.getTemp = response.json()
-                      })
+            this.$http.get('https://www.cryptocompare.com/api/data/coinlist/')
+                .then(response => {
+                    this.coin_list = response.data
+                    // or like this this.coin_list = response.json()
+                })
         }
     }
-
-})
-;
+});

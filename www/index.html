@@ -26,12 +26,12 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td v-for="name in CoinList">{{ name }}
-										<!-- <tr>
-											<td v-for="price in PriceHistorical">
-												{{ price }}
-											</td>
-										</tr> -->
+									<td v-for="name in coin_list">{{ name }}
+														<!-- <tr>
+															<td v-for="price in PriceHistorical">
+																{{ price }}
+															</td>
+														</tr> -->
 									</td>
 								</tr>
 							</tbody>
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 
-			
+<!-- 			
 			<ul class="pagination">
 					<li class="disabled"><a href="#">&laquo;</a></li>
 					<li><a href="#">1</a></li>
@@ -49,11 +49,14 @@
 					<li><a href="#">4</a></li>
 					<li><a href="#">5</a></li>
 					<li><a href="#">&raquo;</a></li>
-				  </ul>
+				  </ul> -->
 
 		</main>
 
-		<script type="text/javascript" src="media/lib/vue.js"></script>
+		
+		<!-- <script type="text/javascript" src="media/lib/vue.js"></script> -->
 		<script type="text/javascript" src="media/js/app.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.13/vue-resource.js"></script>
 	</body>
 </html>
