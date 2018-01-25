@@ -1,6 +1,8 @@
-
+//inicjalizacja obiektu - doczytac !!!
 new Vue ({
+    //element - odwolanie do id'ka w htmlu (drzewie dom)
     el: '#app',
+    //dane  doczytać !!!
     data: {
         coin_list: []
     },
@@ -12,6 +14,7 @@ new Vue ({
                 console.log(error.statusText);
             });
         }
+        
     },
     mounted: function () {
         this.get_coins();

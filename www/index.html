@@ -19,15 +19,21 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th>aaa</th>
-									<th>bbb</th>
-									<th>ccc</th>
+									<th>Nazwa kryptowaluty</th>
+									<th>Skrócona nazwa</th>
+									<th>Algorytm</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td v-for="name in coin_list.Data">
+								<tr v-for="name in coin_list.Data">
+									<td>
 										{{ name.CoinName }}
+									</td>
+									<td>
+										{{ name.Name }}
+									</td>
+									<td>
+										{{ name.Algorithm }}
 									</td>
 								</tr>
 							</tbody>
