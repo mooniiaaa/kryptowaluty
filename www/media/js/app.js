@@ -1,34 +1,19 @@
-// var app = new Vue({
-//     el: '#app',
-//     data: {
-//       CoinList: ['la', 'lal', 'lala'],
-//       PriceHistorical: ['aa', 'aaa', 'aaaa']
-//     }
-//   })
 
-
-import Vue from 'vue'
-import VueResource from 'vue-resource'
-Vue.use(VueResource);
-
-  var app = new Vue({
+new Vue ({
     el: '#app',
-
     data: {
         coin_list: []
     },
-
-    created: function () {
-        this.fetchData();
-    },        
-
-    methods: {
-        fetchData: function () {
-            this.$http.get('https://www.cryptocompare.com/api/data/coinlist/')
-                .then(response => {
-                    this.coin_list = response.data
-                    // or like this this.coin_list = response.json()
-                })
+    methods:{
+        get_coins: function(){
+            this.$http.get('https://min-api.cryptocompare.com/data/all/coinlist').then(function(response){
+                this.coin_list = response.data;
+            }, function(error){
+                console.log(error.statusText);
+            });
         }
+    },
+    mounted: function () {
+        this.get_coins();
     }
 });
