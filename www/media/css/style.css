@@ -1,3 +1,45 @@
 body{
     background: #e0e0e0 url("https://www.zapi.pl/1416-home_default/jasnorozowe-girlandy-perlowe.jpg") repeat;
 }
+
+
+/* test*/
+
+.podtabela{
+    background-color: lightpink;
+}
+
+.tabelaglowna{
+    background-color: lightgray;
+    table-layout: fixed; 
+    width: 100%;
+}
+
+#app{
+    /* height: 85vh; */
+    margin-top: 5vh;
+    /* margin-bottom: 10vh; */
+    /* overflow-y: scroll !important; */
+}
+
+
+
+
+th{
+    text-align: center !important;
+}
+
+
+
+.parent { 
+    position: relative;
+}
+
+.pagination-container{
+    position: fixed; /* zamienic na absolute pozniej */
+    /* top: 50%; */
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
