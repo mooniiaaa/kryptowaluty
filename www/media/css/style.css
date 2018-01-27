@@ -5,21 +5,31 @@ body{
 
 /* test*/
 
-.podtabela{
+.subtable{
     background-color: lightpink;
+    
 }
 
-.tabelaglowna{
+.trhidden{
+    display: none;
+}
+
+.trvisible{
+    display: table-row;
+}
+
+.maintable{
     background-color: lightgray;
     table-layout: fixed; 
     width: 100%;
+    
 }
 
 #app{
-    /* height: 85vh; */
-    margin-top: 5vh;
+    height: 525px;
+    margin-top: 10px;
     /* margin-bottom: 10vh; */
-    /* overflow-y: scroll !important; */
+    overflow-y: scroll !important;
 }
 
 
@@ -35,11 +45,10 @@ th{
     position: relative;
 }
 
-.pagination-container{
+.pagination{
     position: fixed; /* zamienic na absolute pozniej */
     /* top: 50%; */
     bottom: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
