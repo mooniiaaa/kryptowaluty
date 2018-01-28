@@ -14,7 +14,7 @@
 		<main>
 	
 			<div class="container">
-				<div class="row parent">
+				<div class="row">
 					<div id="app">
 
 
@@ -27,16 +27,16 @@
 		</tr>
 	</thead>
 
-	<paginate name="coin_list" :list="coin_list"  :per="4" class="paginate-list">
+	<paginate name="coin_list" :list="coin_list"  :per="10" class="paginate-list">
 	
-	<tbody v-for="name in paginated('coin_list')" onclick="showtr(this)" v-bind:id="name.Name">
+	<tbody v-for="name in paginated('coin_list')" @click="get_prices(name.Name, $event)" v-bind:id="name.Name">
 
 		<tr>
 			<td> {{ name.CoinName }} </td>
 			<td> {{ name.Name }} </td>
 			<td> {{ name.Algorithm }} </td>
 		</tr>
-		<tr class="trhidden subtable">
+		<tr v-if="histo_prices[name.Name]" class="trhidden subtable">
 			<td colspan="3">
 				<table class="table">
 					<thead>
@@ -63,7 +63,9 @@
 
 	</paginate>	
 </table>
-						<paginate-links for="coin_list" :limit="10" :show-step-links="true" class="pagination"></paginate-links>
+<div class="pagination-container">
+<paginate-links for="coin_list" :limit="8" :show-step-links="true" class="pagination"></paginate-links>
+</div>
 					</div>
 				</div>
 			</div>
