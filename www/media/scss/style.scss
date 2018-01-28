@@ -1,0 +1,100 @@
+
+
+
+
+
+body{
+    background: #e0e0e0 url("https://www.zapi.pl/1416-home_default/jasnorozowe-girlandy-perlowe.jpg") repeat;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table{
+    text-align: center;
+    border-radius: 5px !important;
+}
+
+.maintable{
+    background-color: lightgray;
+    table-layout: fixed; /* rowne kolumny */
+    width: 100%;
+
+}
+
+.subtable{
+    background-color: lightpink;
+}
+
+.trhidden{
+    display: none;
+}
+
+.trvisible {
+    display: table-row;
+}
+
+
+
+#app{
+    // height: 525px;
+    margin-top: 10px;
+    /* margin-bottom: 10vh; */
+    // overflow-y: scroll !important;
+}
+
+table{
+    margin-bottom: 0px !important;
+}
+
+thead>tr>th{
+    font-weight: normal !important;
+    color: darkgray !important;
+}
+
+th{
+    text-align: center !important;
+}
+
+.parent {
+    position: relative;
+}
+
+
+/* pagination */
+
+
+
+.pagination{
+    // position: absolute;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    color: #5e5e5e !important;
+    background-color: #ece1df !important;
+    border-color: #ddd !important;
+    cursor: default !important;
+}
+
+.pagination>.disabled>a:focus, .pagination>.disabled>a:hover {
+    cursor: not-allowed !important;
+    background-color: #fff !important;
+}
+
+.pagination > li > a:hover {
+    background-color: #e6e6e6 !important;
+    cursor: pointer !important;
+    border-color: #ddd;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #5e5e5e !important;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}

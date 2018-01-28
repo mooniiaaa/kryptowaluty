@@ -15,44 +15,55 @@
 	
 			<div class="container">
 				<div class="row parent">
-					<div class="table-responsive" id="app" >
-						<table class="table maintable text-center">
-							<thead>
-								<tr>
-									<th>Nazwa kryptowaluty</th>
-									<th>Skrócona nazwa</th>
-									<th>Algorytm</th>
-								</tr>
-							</thead>
-							<paginate name="coin_list" :list="coin_list"  :per="12" class="paginate-list">
-								<tbody v-for="name in paginated('coin_list')" onclick="showtr(this)" v-bind:id="name.Name">
-									<div >
-										<tr>
-											<td>
-												{{ name.CoinName }}
-											</td>
-											<td>
-												{{ name.Name }}	
-											</td>
-											<td>
-												{{ name.Algorithm }}
-											</td>
-										</tr>
-										<tr class="trhidden subtable text-center">
-											<td colspan="3">
-												<!-- <ul>
-													<li v-for="price in histo_prices.name">
-															{{ price }}
-													</li>
-												</ul> -->
-												{{ histo_prices }}
-											</td>
-										</tr>
-									</div>
-								</tbody>
-							</paginate>	
-						</table>
-						<paginate-links for="coin_list" :limit="12" :show-step-links="true" class="pagination"></paginate-links>
+					<div id="app">
+
+
+<table class="table table-responsive maintable">
+	<thead>
+		<tr>
+			<th>NAZWA KRYPTOWALUTY</th>
+			<th>SKRÓCONA NAZWA</th>
+			<th>ALGORYTM</th>
+		</tr>
+	</thead>
+
+	<paginate name="coin_list" :list="coin_list"  :per="4" class="paginate-list">
+	
+	<tbody v-for="name in paginated('coin_list')" onclick="showtr(this)" v-bind:id="name.Name">
+
+		<tr>
+			<td> {{ name.CoinName }} </td>
+			<td> {{ name.Name }} </td>
+			<td> {{ name.Algorithm }} </td>
+		</tr>
+		<tr class="trhidden subtable">
+			<td colspan="3">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>DATA</th>
+							<th>HIGH</th>
+							<th>LOW</th>
+							<th>OPEN</th>
+						</tr>
+					</thead>
+					<tbody v-for="price in histo_prices[name.Name]">
+						<tr>
+							<td> {{ price.time }} </td>
+							<td> {{ price.high }} </td>
+							<td> {{ price.low }} </td>
+							<td> {{ price.open }} </td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	
+	</tbody>
+
+	</paginate>	
+</table>
+						<paginate-links for="coin_list" :limit="10" :show-step-links="true" class="pagination"></paginate-links>
 					</div>
 				</div>
 			</div>

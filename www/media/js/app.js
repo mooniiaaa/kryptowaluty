@@ -6,7 +6,7 @@ var appk = new Vue ({
     data: {
         coin_list: [],
         paginate: ['coin_list'],
-        histo_prices: []
+        histo_prices: {}
     },
     methods:{
         get_coins: function(){
@@ -23,10 +23,13 @@ var appk = new Vue ({
         },
 
         get_prices: function(name){
+            if (name in this.histo_prices){
+                return;
+            }
             var url = 'https://min-api.cryptocompare.com/data/histoday?fsym=' + name + '&tsym=USD&limit=7'
             this.$http.get(url).then(function(response){
-                this.histo_prices = response.data.Data;
-                console.log(this.histo_prices);
+                this.histo_prices[name] = response.data.Data;
+                this.$forceUpdate();
             }, function(error){
                 console.log(error.statusText);
             });
