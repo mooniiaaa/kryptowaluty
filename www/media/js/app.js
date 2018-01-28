@@ -6,7 +6,7 @@ var appk = new Vue ({
     data: {
         coin_list: [],
         paginate: ['coin_list'],
-        hiso_prices: []
+        histo_prices: []
     },
     methods:{
         get_coins: function(){
@@ -14,17 +14,22 @@ var appk = new Vue ({
                 var tmp = [];
                 var resp = response.data.Data;
                 for(var elem in resp){
-                // this.coin_list = response.data.Data;
-                tmp.push(resp[elem]);
-            };
-            this.coin_list = tmp;
+                    tmp.push(resp[elem]);
+                };
+                this.coin_list = tmp;
             }, function(error){
                 console.log(error.statusText);
             });
         },
 
         get_prices: function(name){
-            console.log(name + " test");
+            var url = 'https://min-api.cryptocompare.com/data/histoday?fsym=' + name + '&tsym=USD&limit=7'
+            this.$http.get(url).then(function(response){
+                this.histo_prices = response.data.Data;
+                console.log(this.histo_prices);
+            }, function(error){
+                console.log(error.statusText);
+            });
         }
         
     },
@@ -33,9 +38,9 @@ var appk = new Vue ({
     }
 });
 
-
 //funkcja onclick
 var showtr = function(obj){
+    
     appk.get_prices(obj.id);
     var hist = obj.getElementsByClassName("trhidden")[0];
     hist.classList.toggle('trvisible');
