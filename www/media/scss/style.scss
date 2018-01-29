@@ -153,11 +153,23 @@ th {
 // media queries
 
 @media (max-width: 767px) {
+    .maintable thead > tr > th {
+        letter-spacing: 0.0em;
+    }
+
     ul.paginate-list {
         margin-bottom: 0px !important;
     }
     .maintable {
         margin-top: 0px !important;
+    }
+
+    table.table > tbody > .subtable > td {
+        overflow: scroll !important;
+    }
+    .subtable{
+        pointer-events: auto !important;
+        
     }
 }
 
@@ -169,14 +181,14 @@ th {
     .pagination-small{
         display: inherit;
     }
-    
-    .pagination>li>a, 
-    .pagination>li>span
-    .pagination>li>a:focus, 
-    .pagination>li>a:hover, 
-    .pagination>li>span:focus, 
-    .pagination>li>span:hover {
-        background-color: #f5efee !important;
+    .pagination > li { 
+        a, span, 
+        a:focus, 
+        a:hover, 
+        span:focus, 
+        span:hover {
+        background-color: #f8f4f4 !important;
+        }
     }
     
 }
@@ -191,6 +203,7 @@ th {
         display: inherit;
     }
 }
+
 @media (min-width: 1230px) {
     .pagination-small, 
     .pagination-medium {
