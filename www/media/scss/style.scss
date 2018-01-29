@@ -1,20 +1,18 @@
 $pink-color-opacity: rgba(236,225,223,0.6);
 $pink-color: #ece1df;
-$grey-color: #fbfbfbbd;
 $font-color-grey: #8c8c8c;
 $border-color: #e4e3e3;
 $font-color-thead: #717171;
 
 
 body{
-    background: #e0e0e0 url("https://www.zapi.pl/1416-home_default/jasnorozowe-girlandy-perlowe.jpg") repeat;
+    background: #e0e0e0 url("../img/background2.jpg") repeat;
     font-family: Arial, Helvetica, sans-serif;
     color: $font-color-grey !important;
-}
-
-#app table{
     
 }
+
+
 // #ccc1bf
 .maintable {
     text-align: center;
@@ -22,12 +20,21 @@ body{
     width: 100%;
     margin-top: 50px;
 
+    ::selection {
+        background-color: none;
+        color: #bdb3b3;
+    }
+    ::-moz-selection {
+        background-color: none;
+        color: #bdb3b3;
+    }
+
     .subtable{
         background-color: rgba(123, 123, 123, 0.26);
         table-layout: fixed; 
-
+        pointer-events: none;
         thead > tr > th {
-            background-color: #ada0a0e6;
+            background-color: rgba(173, 160, 160, 0.9);
             color: #fff !important;
         }
     }
@@ -35,7 +42,7 @@ body{
 
 
 .maintable>tbody>tr:first-child:hover{
-    background-color: #f3f3f3c2;
+    background-color: rgba(243, 243, 243, 0.76);
     cursor: pointer;
 }
 
@@ -49,7 +56,7 @@ body{
 
 // .subtable >td > table > thead > tr > th,
 .maintable > tbody > tr{
-    background-color: $grey-color;
+    background-color: rgba(251, 251, 251, 0.74);
 
     
 }
@@ -106,6 +113,14 @@ th {
     width: 100%;
     height: 30px;
     background-color: rgba(236,225,223,0.6);
+    ::selection {
+        background-color: none;
+        color: #bdb3b3;
+    }
+    ::-moz-selection {
+        background-color: none;
+        color: #bdb3b3;
+    }
 }
 
 .pagination{
