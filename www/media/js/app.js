@@ -8,6 +8,12 @@ var appk = new Vue ({
         paginate: ['coin_list'],
         histo_prices: {}
     },
+    filters:{
+        timestamp_to_date: function(ts) {
+            var new_date = new Date(ts*1000);
+            return new_date.toLocaleDateString("pl");
+        }
+    },
     methods:{
         get_coins: function(){
             this.$http.get('https://min-api.cryptocompare.com/data/all/coinlist').then(function(response){

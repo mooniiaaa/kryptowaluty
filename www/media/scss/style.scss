@@ -10,7 +10,7 @@ body{
     color: $font-color !important;
 }
 
-.trhidden{
+.trhidden {
     display: none;
 }
 
@@ -129,7 +129,7 @@ th {
     
     .pagination{
         position: fixed;
-        margin-top: 5px !important;
+        margin-top: 5px;
         left: 50%;
         transform: translate(-50%, -50%);
 
@@ -158,5 +158,45 @@ th {
     }
     .maintable {
         margin-top: 0px !important;
+    }
+}
+
+@media (max-width: 647px) {
+    .pagination-large,
+    .pagination-medium {
+        display: none !important;
+    }
+    .pagination-small{
+        display: inherit;
+    }
+    
+    .pagination>li>a, 
+    .pagination>li>span
+    .pagination>li>a:focus, 
+    .pagination>li>a:hover, 
+    .pagination>li>span:focus, 
+    .pagination>li>span:hover {
+        background-color: #f5efee !important;
+    }
+    
+}
+
+@media (min-width: 648px) and (max-width: 1229px) {
+    .pagination-large,
+    .pagination-small {
+        display: none !important;
+    }
+    .pagination-medium,
+    .pagination {
+        display: inherit;
+    }
+}
+@media (min-width: 1230px) {
+    .pagination-small, 
+    .pagination-medium {
+        display: none !important;
+    }
+    .pagination-large {
+        display: inherit !important;
     }
 }

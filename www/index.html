@@ -46,7 +46,7 @@
 												</thead>
 												<tbody v-for="price in histo_prices[name.Name]">
 													<tr>
-														<td> {{ price.time }} </td>
+														<td> {{ price.time | timestamp_to_date }} </td>
 														<td> {{ price.high }} </td>
 														<td> {{ price.low }} </td>
 														<td> {{ price.open }} </td>
@@ -60,7 +60,16 @@
 						</table>
 
 						<div class="pagination-container">
-							<paginate-links for="coin_list" :limit="10" :show-step-links="true" class="pagination"></paginate-links>
+
+							<paginate-links for="coin_list" :limit="8" :show-step-links="true" class="pagination pagination-large"></paginate-links>
+						
+							<paginate-links for="coin_list" :limit="2" :show-step-links="true" class="pagination pagination-medium"></paginate-links>
+
+							<paginate-links for="coin_list" :simple="{
+							next: 'Next »',
+							prev: '« Back'
+							}" class="pagination pagination-small"></paginate-links>
+
 						</div>
 
 					</div>
