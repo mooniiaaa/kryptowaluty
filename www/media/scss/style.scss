@@ -1,43 +1,57 @@
+$pink-color-opacity: rgba(236,225,223,0.6);
 $pink-color: #ece1df;
-$grey-color: #f4f4f4;
-$dark-grey-color: #e2e2e2;
-
-
+$grey-color: #fbfbfbbd;
+$font-color-grey: #8c8c8c;
+$border-color: #e4e3e3;
+$font-color-thead: #717171;
 
 
 body{
     background: #e0e0e0 url("https://www.zapi.pl/1416-home_default/jasnorozowe-girlandy-perlowe.jpg") repeat;
     font-family: Arial, Helvetica, sans-serif;
+    color: $font-color-grey !important;
 }
 
 #app table{
-    text-align: center;
-    border-radius: 5px !important;
-
+    
 }
-
+// #ccc1bf
 .maintable {
-    background-color: $dark-grey-color;
+    text-align: center;
     table-layout: fixed; /* rowne kolumny */
     width: 100%;
     margin-top: 50px;
-    border: 1px solid lightgray;
-    border-collapse: inherit ; 
+
     .subtable{
-        background-color: $pink-color;
-        
+        background-color: rgba(123, 123, 123, 0.26);
+        table-layout: fixed; 
+
+        thead > tr > th {
+            background-color: #ada0a0e6;
+            color: #fff !important;
+        }
     }
 }
 
 
-
-
-.maintable > thead > tr >th {
-    background-color: $pink-color;
+.maintable>tbody>tr:first-child:hover{
+    background-color: #f3f3f3c2;
+    cursor: pointer;
 }
+
+.maintable > thead > tr > th {
+    background-color: $pink-color-opacity;
+}
+
+.maintable thead tr th {
+    color: $font-color-thead !important;
+}
+
 // .subtable >td > table > thead > tr > th,
-.maintable > tbody {
+.maintable > tbody > tr{
     background-color: $grey-color;
+
+    
 }
 
 
@@ -49,20 +63,38 @@ body{
     margin-bottom: 60px;
 }
 
-
-
 table{
     margin-bottom: 0px !important;
+    border: 1px solid $border-color;
+    border-collapse: inherit !important;
+    border-radius: 5px !important;
+    overflow: hidden;
 
+    table{
+        border: none !important;
+    }
     thead > tr > th {
-            font-weight: normal !important;
-            color: darkgray !important;
-            }
+        font-weight: normal !important;
+        color: $font-color-grey !important;
+        letter-spacing: 0.1em;
+    }
 }
 
 
 th {
     text-align: center !important;
+    border-bottom: none !important;
+}
+
+
+.table > tbody > tr > td, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > td, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > thead > tr > th {
+    border-color: $border-color !important;
+    padding: 10px !important;
 }
 
 
@@ -89,10 +121,13 @@ th {
 .pagination > .active > span,
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
-    color: #5e5e5e !important;
+    color: $font-color-grey !important;
     background-color: $pink-color !important;
-    border-color: #ddd !important;
     cursor: default !important;
+}
+
+li > a{
+    border-color: $border-color !important;
 }
 
 .pagination>.disabled>a:focus, .pagination>.disabled>a:hover {
@@ -101,14 +136,13 @@ th {
 }
 
 .pagination > li > a:hover {
-    background-color: #e6e6e6 !important;
+    background-color: #f3f3f3 !important;
     cursor: pointer !important;
-    border-color: #ddd;
 }
 
 .pagination > li > a,
 .pagination > li > span {
-    color: #5e5e5e !important;
+    color: $font-color-grey !important;
     background-color: #fff;
     border: 1px solid #ddd;
 }
