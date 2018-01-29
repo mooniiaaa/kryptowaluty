@@ -2,84 +2,75 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
+
 		<link rel="stylesheet" type="text/css" href="media/css/style.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
 		<title>Kryptowaluty</title>
 	</head>
 	<body>
 		<main>
-	
 			<div class="container">
 				<div class="row">
 					<div id="app">
+						<table class="table table-responsive maintable">
+							<thead>
+								<tr>
+									<th>NAZWA KRYPTOWALUTY</th>
+									<th>SKRÓCONA NAZWA</th>
+									<th>ALGORYTM</th>
+								</tr>
+							</thead>
 
+							<paginate name="coin_list" :list="coin_list"  :per="10" class="paginate-list">
+							
+								<tbody v-for="name in paginated('coin_list')" @click="get_prices(name.Name, $event)" v-bind:id="name.Name">
+									<tr>
+										<td> {{ name.CoinName }} </td>
+										<td> {{ name.Name }} </td>
+										<td> {{ name.Algorithm }} </td>
+									</tr>
+									<tr v-if="histo_prices[name.Name]" class="trhidden subtable">
+										<td colspan="3">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>DATA</th>
+														<th>HIGH</th>
+														<th>LOW</th>
+														<th>OPEN</th>
+													</tr>
+												</thead>
+												<tbody v-for="price in histo_prices[name.Name]">
+													<tr>
+														<td> {{ price.time }} </td>
+														<td> {{ price.high }} </td>
+														<td> {{ price.low }} </td>
+														<td> {{ price.open }} </td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</paginate>	
+						</table>
 
-<table class="table table-responsive maintable">
-	<thead>
-		<tr>
-			<th>NAZWA KRYPTOWALUTY</th>
-			<th>SKRÓCONA NAZWA</th>
-			<th>ALGORYTM</th>
-		</tr>
-	</thead>
+						<div class="pagination-container">
+							<paginate-links for="coin_list" :limit="10" :show-step-links="true" class="pagination"></paginate-links>
+						</div>
 
-	<paginate name="coin_list" :list="coin_list"  :per="10" class="paginate-list">
-	
-	<tbody v-for="name in paginated('coin_list')" @click="get_prices(name.Name, $event)" v-bind:id="name.Name">
-
-		<tr>
-			<td> {{ name.CoinName }} </td>
-			<td> {{ name.Name }} </td>
-			<td> {{ name.Algorithm }} </td>
-		</tr>
-		<tr v-if="histo_prices[name.Name]" class="trhidden subtable">
-			<td colspan="3">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>DATA</th>
-							<th>HIGH</th>
-							<th>LOW</th>
-							<th>OPEN</th>
-						</tr>
-					</thead>
-					<tbody v-for="price in histo_prices[name.Name]">
-						<tr>
-							<td> {{ price.time }} </td>
-							<td> {{ price.high }} </td>
-							<td> {{ price.low }} </td>
-							<td> {{ price.open }} </td>
-						</tr>
-					</tbody>
-				</table>
-			</td>
-		</tr>
-	
-	</tbody>
-
-	</paginate>	
-</table>
-<div class="pagination-container">
-<paginate-links for="coin_list" :limit="10" :show-step-links="true" class="pagination"></paginate-links>
-</div>
 					</div>
 				</div>
 			</div>
 		</main>
 
-		<script type="text/javascript" src="media/lib/vue.js"></script>
+		<script type="text/javascript" src="media/lib/vue.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.4/vue-resource.js"></script>
-
 		<script type="text/javascript" src="media/js/vue-paginate.js"></script>
 		<script type="text/javascript" src="media/js/app.js"></script>
-		
 	</body>
-
 </html>
-
-
