@@ -1,19 +1,21 @@
-//inicjalizacja obiektu - doczytac !!!
+// inicjalizacja obiektu
 var appk = new Vue ({
-    //element - odwolanie do id'ka w htmlu (drzewie dom)
+    // element - odwolanie do id'ka w htmlu - kod sie wykona w obrebie ID app
     el: '#app',
-    //dane  doczytać !!!
+    // dane w ktore "pakujemy" wyniki
     data: {
-        coin_list: [],
-        paginate: ['coin_list'],
-        histo_prices: {}
+        coin_list: [], // tutaj tablica z lista kryptowalut
+        paginate: ['coin_list'], // paginacja dla listy powyzej
+        histo_prices: {} // ceny historyczne
     },
+    // filtry - 
     filters:{
         timestamp_to_date: function(ts) {
-            var new_date = new Date(ts*1000);
-            return new_date.toLocaleDateString("pl");
+            var new_date = new Date(ts*1000); // tutaj nastepuje zamiana daty na odpowiedni format
+            return new_date.toLocaleDateString("pl"); // pl oznacza czas dla Polski
         }
     },
+    // 
     methods:{
         get_coins: function(){
             this.$http.get('https://min-api.cryptocompare.com/data/all/coinlist').then(function(response){
