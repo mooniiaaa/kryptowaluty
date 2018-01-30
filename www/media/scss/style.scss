@@ -1,10 +1,10 @@
 $font-color: #8c8c8c;
-$border-color: #e4e3e3;
 $font-color-thead: #717171;
+$border-color: #e4e3e3;
 $color-pink-opacity: rgba(236,225,223,0.6);
 $selection-color: #bdb3b3;
 
-body{
+body {
     background: #e0e0e0 url("../img/background.jpg") repeat;
     font-family: Arial, Helvetica, sans-serif;
     color: $font-color !important;
@@ -14,20 +14,20 @@ body{
     display: none;
 }
 
-#app{
+#app {
     margin-bottom: 60px;
 }
 
 // ustawienia tabel
 
-table{
+table {
     margin-bottom: 0px !important;
     border: 1px solid $border-color;
     border-collapse: inherit !important;
     border-radius: 5px !important;
     overflow: hidden;
 
-    table{
+    table {
         border: none !important;
     }
 }
@@ -60,7 +60,7 @@ th {
         letter-spacing: 0.1em;
     }
 
-    .subtable{
+    .subtable {
         background-color: rgba(123, 123, 123, 0.26);
         table-layout: fixed; 
         pointer-events: none;
@@ -72,7 +72,7 @@ th {
     }
 }
 
-.maintable > tbody > tr:first-child:hover{
+.maintable > tbody > tr:first-child:hover {
     background-color: rgba(243, 243, 243, 0.76);
     cursor: pointer;
 }
@@ -99,7 +99,7 @@ th {
 
 // paginacja
 
-.pagination-container{
+.pagination-container {
     position: fixed;
     bottom: 0px;
     left: 0px;
@@ -117,7 +117,7 @@ th {
         color: $selection-color;
     }
 
-    li > a, li > span{
+    li > a, li > span {
         border-color: $border-color !important;
         color: $font-color !important;
     }
@@ -127,7 +127,7 @@ th {
         cursor: pointer !important;
     }
     
-    .pagination{
+    .pagination {
         position: fixed;
         margin-top: 5px;
         left: 50%;
@@ -167,7 +167,7 @@ th {
     table.table > tbody > .subtable > td {
         overflow: scroll !important;
     }
-    .subtable{
+    .subtable {
         pointer-events: auto !important;
         
     }
@@ -178,7 +178,7 @@ th {
     .pagination-medium {
         display: none !important;
     }
-    .pagination-small{
+    .pagination-small {
         display: inherit;
     }
     .pagination > li { 
@@ -211,5 +211,11 @@ th {
     }
     .pagination-large {
         display: inherit !important;
+    }
+    .pagination-container {
+        height: 45px;
+    }
+    #app {
+        margin-bottom: 75px;
     }
 }
